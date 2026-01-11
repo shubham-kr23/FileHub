@@ -48,6 +48,7 @@ mvn spring-boot:run -Dspring-boot.run.profiles=local
 
 #### Frontend
 ```bash
+### make sure to go to /frontend/file-storage-ui before executing npm
 npm run dev -- --host
 ```
 
