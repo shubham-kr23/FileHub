@@ -86,3 +86,13 @@ input[type="file"] {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
+div#file-item {
+  display: flex;
+  background: #313131;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px; 
+  border: 1px solid #313131;
+  border-radius: 8px;
+}

@@ -55,7 +55,7 @@ function FileList() {
     <div>
       <h3>Uploaded Files</h3>
       <button onClick={handleClear} style={{ marginBottom: "8px" }}>
-        CLEAR
+        Delete All
       </button>
       <p>{status}</p>
       <ul>

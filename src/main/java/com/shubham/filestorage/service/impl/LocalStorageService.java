@@ -56,15 +56,32 @@ public class LocalStorageService implements StorageService {
 
     @Override
     public void deleteAll() throws Exception {
-        // Delete all files/directories under baseDir but keep the baseDir itself
+        // Delete all files/directories under baseDir but keep the baseDir itself.
+        // Preserve any .gitkeep files to retain directory structure.
         try (var stream = Files.walk(this.baseDir)) {
             stream.filter(path -> !path.equals(this.baseDir))
                   .sorted(java.util.Comparator.reverseOrder())
                   .forEach(path -> {
                       try {
+                          // Skip .gitkeep files
+                          if (Files.isRegularFile(path) && " .gitkeep".trim().equals(path.getFileName().toString())) {
+                              return;
+                          }
+
+                          // If directory, only delete if empty (after skipping .gitkeep)
+                          if (Files.isDirectory(path)) {
+                              try (var entries = Files.list(path)) {
+                                  if (entries.findAny().isPresent()) {
+                                      // Directory not empty — skip deletion
+                                      return;
+                                  }
+                              }
+                          }
+
                           Files.deleteIfExists(path);
                       } catch (Exception e) {
-                          throw new RuntimeException("Failed to delete: " + path + " -> " + e.getMessage(), e);
+                          // Log and continue — don't fail the entire clear on single delete errors
+                          System.err.println("Failed to delete: " + path + " -> " + e.getMessage());
                       }
                   });
         }
