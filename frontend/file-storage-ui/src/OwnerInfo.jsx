@@ -17,7 +17,7 @@ function OwnerInfo({
       <h3 style={{ margin: 0 }}>{name}</h3>
 
       <div style={{ display: "flex", gap: "12px", marginTop: "8px" }}>
-              <a
+        <a
         href={`mailto:${email}`}
         style={{
           color: "inherit",
