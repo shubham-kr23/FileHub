@@ -10,10 +10,11 @@ mkdir -p "$RUN_DIR"
 
 print_usage() {
   cat <<EOF
-Usage: $0 <start|stop|status|help>
+Usage: $0 <start|restart|stop|status|help>
 
 Commands:
   start   Start backend and frontend
+  restart Restart backend and frontend
   stop    Stop backend and frontend
   status  Show running status
   help    Show this message
@@ -86,6 +87,12 @@ status() {
 
 case "${1:-}" in
   start)
+    start_backend
+    start_frontend
+    ;;
+  restart)
+    stop_frontend
+    stop_backend
     start_backend
     start_frontend
     ;;
