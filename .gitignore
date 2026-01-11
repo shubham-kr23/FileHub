@@ -1,0 +1,23 @@
+# Local storage and DB
+/storage/
+*.mv.db
+*.h2.db
+
+# Java / Maven
+/target/
+*.class
+
+# IDE
+.idea/
+*.iml
+
+# Node / frontend
+/node_modules/
+/dist/
+/build/
+/.vite/
+
+# Secrets (ignore actual secrets but keep the example)
+/secrets/
+!/secrets/credentials.example.json
+!/secrets/README.md
