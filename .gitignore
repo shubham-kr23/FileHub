@@ -16,8 +16,3 @@
 /dist/
 /build/
 /.vite/
-
-# Secrets (ignore actual secrets but keep the example)
-/secrets/
-!/secrets/credentials.example.json
-!/secrets/README.md
