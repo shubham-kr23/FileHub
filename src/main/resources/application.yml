@@ -30,3 +30,5 @@ aws:
 
 storage:
   type: S3
+
+## to be used when using s3 cloud storage
