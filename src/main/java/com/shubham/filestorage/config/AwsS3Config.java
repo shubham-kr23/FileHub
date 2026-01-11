@@ -19,3 +19,5 @@ public class AwsS3Config {
                 .build();
     }
 }
+
+//  to be used when S3 storage is implemented
