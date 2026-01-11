@@ -1,5 +1,5 @@
 # Local storage and DB
-/storage/
+/storage/*
 *.mv.db
 *.h2.db
 
