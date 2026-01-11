@@ -1,5 +1,6 @@
 # Local storage and DB
 /storage/*
+!/storage/.gitkeep
 *.mv.db
 *.h2.db
 
